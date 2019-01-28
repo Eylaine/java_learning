@@ -1,8 +1,11 @@
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * Description:
  * Date: 2018/11/14
+ *
  * @author: Eylaine
  */
 public class DateTime {
@@ -17,6 +20,7 @@ public class DateTime {
 
     /**
      * 打印当月的日历（星期一为第一天）
+     *
      * @param localDate LocalDate
      */
     public static void monFirst(LocalDate localDate) {
@@ -51,6 +55,7 @@ public class DateTime {
 
     /**
      * 打印当月的日历（星期日为第一天）
+     *
      * @param localDate LocalDate
      */
     public static void sunFirst(LocalDate localDate) {
@@ -81,5 +86,14 @@ public class DateTime {
             }
             localDate = localDate.plusDays(1);
         }
+    }
+
+    /**
+     * @return
+     */
+    public static String stampToDate(long timeStamp) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+        Date date = new Date(timeStamp);
+        return sdf.format(date);
     }
 }
