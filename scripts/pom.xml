@@ -14,27 +14,36 @@
     <!--多环境配置-->
     <profiles>
         <profile>
-            <id>alpha</id>
-            <properties>
-                <profiles.active>alpha</profiles.active>
-            </properties>
-        </profile>
-        <profile>
             <id>alta</id>
             <properties>
                 <profiles.active>alta</profiles.active>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
         <profile>
             <id>prod</id>
             <properties>
                 <profiles.active>prod</profiles.active>
             </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
         </profile>
     </profiles>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>alta/*.properties</include>
+                    <include>prod/*.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/${profiles.active}</directory>
+            </resource>
+        </resources>
+    </build>
 
     <dependencies>
         <dependency>
@@ -51,6 +60,11 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.0.1</version>
         </dependency>
     </dependencies>
 
