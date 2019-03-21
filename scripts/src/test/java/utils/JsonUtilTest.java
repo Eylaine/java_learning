@@ -1,7 +1,5 @@
 package utils;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import org.testng.annotations.Test;
 
 /**
@@ -13,14 +11,12 @@ import org.testng.annotations.Test;
 public class JsonUtilTest {
 
     @Test
-    public void getOne() {
-        String strJson = "";
-        JSONObject jsonObject = JSONObject.fromObject(strJson);
-        JSONArray result = jsonObject.getJSONArray("result");
-
-        for (int i = 0; i < result.size(); i++) {
-            String restId = result.getString(i);
-        }
+    public void testGetValue() {
+        String strJson = "{\"a\":2,\"b\":[\"b\"],\"c\":[[\"a\",\"b\"]],\"d\":{\"a\":1},\"e\":{\"a\":{\"b\":1}},\"f\":[{\"f\":2},{\"e\":3}]}";
+//        System.out.println(JsonUtil.getValue(strJson, "a"));
+//        System.out.println(JsonUtil.getValue(strJson, "b.[0]"));
+        System.out.println(JsonUtil.getValue(strJson, "f.[1].e"));
+//        System.out.println(JsonUtil.getValue(strJson, "d.a"));
+        System.out.println(JsonUtil.getValue(strJson, "e.a.b"));
     }
-
 }

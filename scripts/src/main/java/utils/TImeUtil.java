@@ -1,25 +1,25 @@
 package utils;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Description:
  * Date: 2019-02-21
- *
  * @author: Eylaine
  */
 public class TImeUtil {
 
     //默认时间格式
-    private static String timeFormat = "yyyy-MM-dd HH:mm:ss:SS";
-    private static LocalDate localDate = LocalDate.now();
+    private static String pattern = "yyyy-MM-dd HH:mm:ss:SSS";
+    private static LocalDateTime now = LocalDateTime.now();
 
     /**
      *  获取当前月份
      * @return
      */
     public static int getCurrentMonth() {
-        return localDate.getMonthValue();
+        return now.getMonthValue();
     }
 
     /**
@@ -27,7 +27,16 @@ public class TImeUtil {
      * @return
      */
     public static int getCurrentDay() {
-        return localDate.getDayOfMonth();
+        return now.getDayOfMonth();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public static String formatTime() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
+        return now.format(dtf);
     }
 
 }
