@@ -17,7 +17,7 @@ public class JsonUtil {
 
     /**
      * 根据path，获取Json串中的值
-     * path的格式：a.b.c, a.b[0].c, a.b[0].c[0]
+     * path的格式：a.b.c, a.[0].c, a.[0].[0]
      * @param strJson
      * @param path
      * @return
