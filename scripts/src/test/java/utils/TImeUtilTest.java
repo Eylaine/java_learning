@@ -1,8 +1,10 @@
 package utils;
 
+import com.alibaba.fastjson.JSON;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Description:
@@ -25,5 +27,14 @@ public class TImeUtilTest {
     @Test
     public void testFormatTime() {
         System.out.println(TImeUtil.formatTime());
+    }
+
+    @Test
+    public void test() {
+        Map<String, String> temp = new HashMap<>();
+        temp.put("a", "a");
+        temp.put("b", "b");
+        System.out.println(temp);
+        System.out.println(JSON.toJSONString(temp));
     }
 }

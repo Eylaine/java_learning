@@ -13,7 +13,7 @@ public class SchemaUtilTest {
     @Test
     public void testValidate() {
 
-        String str = "{\"resCode\":200,\"resBody\":{\"name\":\"Error Code\",\"message\":\"Error Message\"}}";
+        String str = "{\"resCode\":400,\"resBody\":{\"name\":\"Error Code\",\"message\":\"Error Message\"}}";
 
         String schemaPath = CommonUtil.ROOTPATH + "src/main/resources/schema/test.json";
 

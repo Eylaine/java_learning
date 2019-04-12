@@ -6,7 +6,7 @@
     "resCode": {
       "type": "number",
       "title": "The Http Status Code",
-      "minimum": 400
+      "const": 400
     },
     "resBody": {
       "title": "The Response Body",
@@ -15,7 +15,8 @@
       "properties": {
         "name": {
           "type": "string",
-          "title": "The Error Code"
+          "title": "The Error Code",
+          "enum":  ["Error Cod"]
         },
         "message": {
           "type": "string",
